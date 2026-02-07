@@ -1,0 +1,57 @@
+nelmio_api_doc:
+    documentation:
+        info:
+            title: ISFPP API
+            description: API Backend pour la gestion des Actualités de l'ISFPP. Clean Architecture Symfony 7.2.
+            version: 1.0.0
+        servers:
+            - url: http://localhost:8000
+              description: Serveur de développement local
+        components:
+            securitySchemes:
+                Bearer:
+                    type: http
+                    scheme: bearer
+                    bearerFormat: JWT
+            schemas:
+                NewsDTO:
+                    type: object
+                    properties:
+                        id:
+                            type: integer
+                            example: 1
+                        title:
+                            type: string
+                            example: "Journée Portes Ouvertes 2026"
+                        slug:
+                            type: string
+                            example: "journee-portes-ouvertes-2026"
+                        category:
+                            type: string
+                            enum: ["événements", "vie", "réussites", "partenariats"]
+                            example: "événements"
+                        content:
+                            type: string
+                            example: "Bienvenue à tous..."
+                        imageUrl:
+                            type: string
+                            nullable: true
+                            example: "https://example.com/image.jpg"
+                        status:
+                            type: string
+                            enum: ["draft", "published"]
+                            example: "published"
+                        publishedAt:
+                            type: string
+                            format: date-time
+                            nullable: true
+                        createdAt:
+                            type: string
+                            format: date-time
+                        updatedAt:
+                            type: string
+                            format: date-time
+
+    areas: # to filter documented areas
+        path_patterns: # an array of regexps
+            - ^/api(?!/doc$) # Accepts routes under /api except /api/doc
