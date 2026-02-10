@@ -3,3 +3,20 @@ controllers:
         path: ../src/Presentation/Controller/
         namespace: App\Presentation\Controller
     type: attribute
+
+api_login:
+    path: /api/auth/login
+    methods: [POST]
+
+api_refresh_token:
+    path: /api/auth/refresh
+    methods: [POST]
+
+api_logout:
+    path: /api/auth/logout
+    methods: [POST]
+
+api_me:
+    path: /api/auth/me
+    methods: [GET]
+    controller: App\Presentation\Controller\AuthController::me
