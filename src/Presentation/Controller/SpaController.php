@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Attribute\Route;
 
 class SpaController extends AbstractController
 {
-    #[Route('/{reactRouting}', name: 'app_spa', requirements: ['reactRouting' => '^(?!api).+'], defaults: ['reactRouting' => null], priority: -1)]
+    #[Route('/{reactRouting}', name: 'app_spa', requirements: ['reactRouting' => '^(?!api).*'], defaults: ['reactRouting' => null], priority: -1)]
     public function index(): Response
     {
         $indexPath = __DIR__ . '/../../../public/index.html';
