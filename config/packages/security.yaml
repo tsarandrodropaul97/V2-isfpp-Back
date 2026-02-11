@@ -45,6 +45,8 @@ security:
         - { path: ^/api/news/\d+, roles: PUBLIC_ACCESS, methods: [GET] }
         - { path: ^/api/auth/me, roles: IS_AUTHENTICATED_FULLY }
         - { path: ^/api, roles: IS_AUTHENTICATED_FULLY }
+        # Allow SPA routes to be accessed by anyone (frontend handles auth)
+        - { path: ^/, roles: PUBLIC_ACCESS }
 
 when@test:
     security:
